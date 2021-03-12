@@ -3,13 +3,12 @@ import 'firebase/firestore'
 import 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBKB4L3qyD-QHCovEvntQS3HRuOJBVSkno",
-  authDomain: "udemy-vue-projects.firebaseapp.com",
-  databaseURL: "https://udemy-vue-projects.firebaseio.com",
-  projectId: "udemy-vue-projects",
-  storageBucket: "udemy-vue-projects.appspot.com",
-  messagingSenderId: "25092947019",
-  appId: "1:25092947019:web:1cd42f080ff63e1c63e1ce"
+  apiKey: "AIzaSyAZXimGj1r-CFzjsnY7EdQ_I69ni_1MRck",
+  authDomain: "live-chat-bd94b.firebaseapp.com",
+  projectId: "live-chat-bd94b",
+  storageBucket: "live-chat-bd94b.appspot.com",
+  messagingSenderId: "420525990596",
+  appId: "1:420525990596:web:4b272a9cf97e8c43aa9f91"
 };
 
 // init firebase

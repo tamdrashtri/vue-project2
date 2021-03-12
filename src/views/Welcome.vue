@@ -1,14 +1,16 @@
 <template>
-  <div class="welcome container">
+  <div class="flex min-h-screen ">
+    <div class="container mx-auto">
+        <div class="card">
     <div v-if="showLogin">
-      <h2>Login</h2>
       <LoginForm @login="enterLessons"/>
-      <p>No account yet? <span @click="showLogin = false">Signup</span> instead.</p>
+      <p class="text-center">No account yet? <span @click="showLogin = false">Signup</span> instead.</p>
     </div>
     <div v-else>
-      <h2>Sign up</h2>
       <SignupForm @signup="enterLessons" />
-      <p>Already registered? <span @click="showLogin = true">Login</span> instead.</p>
+      <p class="text-center">Already registered? <span @click="showLogin = true">Login</span> instead.</p>
+    </div>
+  </div>
     </div>
   </div>
 </template>
@@ -34,7 +36,7 @@ export default {
 </script>
 
 <style>
-  .welcome span{
+  span{
     font-weight: bold;
     text-decoration: underline;
     cursor: pointer;

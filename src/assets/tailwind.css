@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+.card {
+    @apply max-w-md;
+    @apply mx-auto;
+    @apply my-10;
+    @apply bg-white;  
+    @apply p-5;
+    @apply rounded-md;
+    @apply shadow-sm;
+    @apply bg-gray-50;
+    @apply 2xl:bg-gray-900;
+    
+}
+.title {
+    @apply my-3;
+    @apply text-3xl;
+    @apply font-semibold;
+    @apply text-gray-700;
+    @apply 2xl:text-gray-200;
+}
+
+.input-text {
+    @apply w-full;
+    @apply px-3;
+    @apply py-2;
+    @apply placeholder-gray-300;
+    @apply border;
+    @apply border-gray-300;
+    @apply rounded-md;
+    @apply focus:outline-none;
+    @apply focus:ring;
+    @apply focus:ring-indigo-100;
+    @apply focus:border-indigo-300;
+    @apply 2xl:bg-gray-700;
+    @apply 2xl:placeholder-gray-500;
+    @apply 2xl:border-gray-600;
+    @apply 2xl:focus:ring-gray-900;
+    @apply 2xl:focus:border-gray-500;
+}
+.button {
+    @apply w-full;
+    @apply px-3;
+    @apply py-4;
+    @apply text-white;  
+    @apply bg-indigo-500;
+    @apply rounded-md;
+    @apply focus:bg-indigo-600;
+    @apply focus:outline-none;
+    
+}
+       
+@tailwind utilities;
+

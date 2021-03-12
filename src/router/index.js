@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Welcome from '../views/Welcome.vue'
 import Lessons from '../views/Lessons.vue'
+import CreateLesson from '../views/CreateLesson.vue'
 import { projectAuth } from '../firebase/config'
 
 
@@ -24,6 +25,12 @@ const routes = [
     path: '/lessons',
     name: 'Lessons',
     component: Lessons,
+    beforeEnter: requireAuth
+  },
+  {
+    path: '/lessons/create',
+    name: 'CreateLesson',
+    component: CreateLesson,
     beforeEnter: requireAuth
   }
 ]

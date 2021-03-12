@@ -2,11 +2,11 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-// import global css
-import './assets/main.css'
 
 // import firebase auth service
 import { projectAuth } from './firebase/config'
+
+import './assets/tailwind.css'
 
 let app
 

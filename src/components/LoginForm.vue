@@ -5,9 +5,6 @@
   <div class="m-7">
     <form @submit.prevent="handleSubmit">
       <div class="mb-6">
-        <input class="input-text" type="text" required placeholder="display name" v-model="displayName">
-      </div>
-      <div class="mb-6">
         <input class="input-text" type="email" required placeholder="email" v-model="email">
       </div>
       <div class="mb-6">

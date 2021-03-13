@@ -23,7 +23,7 @@
           <h2 class="text-lg font-medium title-font mb-2">{{ title }}</h2>
           <p class="leading-relaxed text-base">{{desc}}</p>
           <div class="inline-block mr-2 mt-2		">
-            <router-link :to="`edit/${id}`">
+            <router-link :to="`/lessons/${id}`">
               <button class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-purple-500 hover:bg-purple-600 hover:shadow-l">
                 Edit
               </button>

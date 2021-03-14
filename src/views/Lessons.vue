@@ -5,65 +5,83 @@
           <div class="m-7">
                 <form @submit.prevent="onSubmit">
                     <div class="mb-6">
-                        <input type="text" v-model="form.title" optional placeholder="Title (optional)" class="input-text" >
-                    </div>
-                    <div class="mb-6">
-                        <textarea rows="2" v-model="form.desc" name="message" id="message" placeholder="Descriptions" class="input-text" required></textarea>
+                        <input type="text" v-model="title" optional placeholder="Lesson Title" class="input-text" >
                     </div>
                     <div class="mb-6">
                         <button type="submit" class="button">Add</button>
                     </div>
                 </form>
             </div>
-          </div>
-          <div v-for="{ id, title, desc } in lessons" :key="id">
-          
             
-            <div class="card">
-          <h2 class="text-lg font-medium title-font mb-2">{{ title }}</h2>
-          <p class="leading-relaxed text-base">{{desc}}</p>
-          <div class="inline-block mr-2 mt-2		">
-            <router-link :to="`/lessons/${id}`">
-              <button class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-purple-500 hover:bg-purple-600 hover:shadow-l">
-                Edit
-              </button>
-            </router-link>
+          </div>
+          <div v-if="error" class="error">Could not fetch the data</div>
+          <div v-if="documents">
+              <div v-for="doc in documents" :key="doc.id">
+                <div class="card">
+                <h2 class="text-lg font-medium title-font mb-2">{{ doc.title }}</h2>
+              <div class="inline-block mr-2 mt-2		">
+                <router-link :to="`/lessons/${id}`">
+                  <button class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-purple-500 hover:bg-purple-600 hover:shadow-l">
+                    Edit
+                  </button>
+                </router-link>
+                <div class="inline-block mr-2 mt-2		">
+                  <button class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-red-500 hover:bg-red-600 hover:shadow-lg" @click="deleteLesson(id)">
+                    Delete
+                  </button>
+                </div>
+                </div>
+              </div>
               
-            
-        
           </div>
-          <div class="inline-block mr-2 mt-2		">
-            <button class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-red-500 hover:bg-red-600 hover:shadow-lg" @click="deleteLesson(id)">
-              Delete
-            </button>
-          </div>
+          
+
+          
     
         </div>
+
+          
   </div>
     </div>
-  </div>
+ 
   
  
 </template>
 
 <script>
 // import { useRoute } from 'vue-router'
-import { reactive } from 'vue'
-import { useLoadLessons, createLesson, deleteLesson } from '../composables/crudLesson'
-export default {
-  setup() {
-    const lessons = useLoadLessons()
+import LessonList from '../components/LessonList'
+import { ref } from 'vue'
+import { timestamp } from '@/firebase/config'
+import useCollection from '../composables/useCollection'
+import getCollection from '../composables/getCollection'
 
-    
-    // new lesson
-    const form = reactive({ title: '', desc: '' })
+export default {
+  name: 'Home',
+  setup() {
+    const { documents } = getCollection('lessons')
+    const { error, addDoc } = useCollection('lessons')
+
+
+    const title = ref('')
+    const isPending = ref(false)
+
+
     const onSubmit = async () => {
-      await createLesson({ ...form })
-      form.title = ''
-      form.desc = ''
-    }
+      isPending.value = true
+      await addDoc({
+        title: title.value,
+        // songs: [],
+        createdAt: timestamp()
+      })
+      isPending.value = false
+      if (!error.value) {
+        console.log('lesson title added')
+      }
     
-    return {createLesson, deleteLesson, lessons, form, onSubmit}
+  }
+    
+    return { title, onSubmit, isPending, documents, error}
   }
 }
 </script>

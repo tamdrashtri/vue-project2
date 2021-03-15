@@ -8,9 +8,6 @@
                         <input type="text" v-model="form.title" optional placeholder="Title (optional)" class="input-text" >
                     </div>
                     <div class="mb-6">
-                        <textarea rows="2" v-model="form.desc" name="message" id="message" placeholder="Descriptions" class="input-text" required></textarea>
-                    </div>
-                    <div class="mb-6">
                         <button type="submit" class="button">Add</button>
                     </div>
                 </form>

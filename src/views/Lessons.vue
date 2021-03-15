@@ -11,38 +11,16 @@
                         <button type="submit" class="button">Add</button>
                     </div>
                 </form>
+                
             </div>
-            
-          </div>
-          <div v-if="error" class="error">Could not fetch the data</div>
-          <div v-if="documents">
-              <div v-for="doc in documents" :key="doc.id">
-                <div class="card">
-                <h2 class="text-lg font-medium title-font mb-2">{{ doc.title }}</h2>
-              <div class="inline-block mr-2 mt-2		">
-                <router-link :to="`/lessons/${id}`">
-                  <button class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-purple-500 hover:bg-purple-600 hover:shadow-l">
-                    Edit
-                  </button>
-                </router-link>
-                <div class="inline-block mr-2 mt-2		">
-                  <button class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-red-500 hover:bg-red-600 hover:shadow-lg" @click="deleteLesson(id)">
-                    Delete
-                  </button>
-                </div>
-                </div>
-              </div>
-              
-          </div>
-          
+          </div> 
+            <LessonList :lessons="documents" />
 
-          
-    
         </div>
 
           
   </div>
-    </div>
+  
  
   
  
@@ -57,10 +35,11 @@ import useCollection from '../composables/useCollection'
 import getCollection from '../composables/getCollection'
 
 export default {
-  name: 'Home',
+  name: 'Lessons',
+  components: {LessonList},
   setup() {
-    const { documents } = getCollection('lessons')
-    const { error, addDoc } = useCollection('lessons')
+    const { error, documents } = getCollection('lessons')
+    const { addDoc } = useCollection('lessons')
 
 
     const title = ref('')
@@ -71,7 +50,6 @@ export default {
       isPending.value = true
       await addDoc({
         title: title.value,
-        // songs: [],
         createdAt: timestamp()
       })
       isPending.value = false

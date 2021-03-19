@@ -32,7 +32,7 @@ export default {
     const showForm = ref(false)
     const { updateDoc } = useDocument('lessons', props.lesson.id)
     const handleSubmit = async () => {
-      const newSong = {
+      const newContent = {
         content: content.value,
         id: Math.floor(Math.random() * 1000000)
       }

@@ -2,7 +2,7 @@
     <div class="h2">Lesson ID {{id}}</div>
     <div class="error" v-if="error">{{ error }}</div>
   <div v-if="lesson" class="lesson-details">
-
+    
      <div class="lesson-info">
       <h2>{{ lesson.title }}</h2>
        <!-- <button v-if="ownership" @click="handleDelete">Delete lesson</button>  -->
@@ -12,14 +12,15 @@
       <div v-if="!lesson.contents.length">No contents have been added to this lesson yet.</div>
       <div v-for="content in lesson.contents" :key="content.id" class="single-content">
         <div class="details">
-          <h3>{{ content.id }}</h3>
+          <h3>{{ content.detail }}</h3>
         </div>
         <!-- <button v-if="ownership">delete</button> -->
       </div>
-      <AddContent :lesson="lesson" />
+      
     </div> 
     
   </div> 
+  <!-- <AddContent :lesson="lesson" /> -->
 </template>
 
 <script>

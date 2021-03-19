@@ -1,26 +1,29 @@
 <template>
-    <div class="h2">Lesson ID {{id}}</div>
-    <div class="error" v-if="error">{{ error }}</div>
-  <div v-if="lesson" class="lesson-details">
-    
-     <div class="lesson-info">
-      <h2>{{ lesson.title }}</h2>
-       <!-- <button v-if="ownership" @click="handleDelete">Delete lesson</button>  -->
-    </div>
+      <div class="flex min-h-screen ">
+    <div class="container mx-auto">
+        <div class="card">
+              <AddContent :lesson="lesson" />
+        </div>
+        <div class="card">
+            <div class="text-center">
+                <h2 class="title">{{ lesson.title }}</h2>
+                <div class="error" v-if="error">{{ error }}</div>
+            </div>
+        </div>
 
-    <div class="content-list">
-      <div v-if="!lesson.contents.length">No contents have been added to this lesson yet.</div>
+       <!-- <button v-if="ownership" @click="handleDelete">Delete lesson</button>  -->
+      
+        <div v-if="!lesson.contents.length">No contents have been added to this lesson yet.</div>
       <div v-for="content in lesson.contents" :key="content.id" class="single-content">
-        <div class="details">
+
+        <div class="card">
           <h3>{{ content.detail }}</h3>
         </div>
         <!-- <button v-if="ownership">delete</button> -->
       </div>
       
     </div> 
-    
-  </div> 
-  <!-- <AddContent :lesson="lesson" /> -->
+      </div>
 </template>
 
 <script>

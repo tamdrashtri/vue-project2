@@ -1,24 +1,20 @@
 <template>
-    <div class="flex min-h-screen ">
-    <div class="container mx-auto">
-        <div class="card">
+    
             <div class="text-center">
-                <h1 class="title">Add a Page</h1>
+                <h1 class="title">Add Content Pages</h1>
                 <p class="text-gray-400 dark:text-gray-400">Add Multiple Pages to create a lesson</p>
             </div>
             <div class="m-7">
                 <form @submit.prevent="handleSubmit">
                     <div class="mb-6">
-                        <textarea v-model="content" rows="5" name="message" id="message" placeholder="Explain something" class="input-text" required></textarea>
+                        <textarea v-model="detail" rows="5" name="message" id="message" placeholder="Explain something" class="input-text" required></textarea>
                     </div>
                     <div class="mb-6">
                         <button type="submit" class="button">Add</button>
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
-</div>
+        
 
 </template>
 
@@ -26,22 +22,23 @@
 import { ref } from 'vue'
 import useDocument from '../composables/useDocument'
 export default {
-  props: ['lessons'],
+  props: ['lesson'],
   setup(props) {
-    const content = ref('')
+    const detail = ref('')
     const showForm = ref(false)
     const { updateDoc } = useDocument('lessons', props.lesson.id)
     const handleSubmit = async () => {
       const newContent = {
-        content: content.value,
+        detail: detail.value,
         id: Math.floor(Math.random() * 1000000)
       }
+      console.log(newContent)
       const res = await updateDoc({
-        contents: [...props.lessons.contents, newContent]
+        contents: [...props.lesson.contents, newContent]
       })
-      content.value = ''
+      detail.value = ''
     }
-    return { content, showForm, handleSubmit }
+    return { detail, showForm, handleSubmit }
   }
 }
 </script>

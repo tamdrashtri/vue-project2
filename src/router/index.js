@@ -3,6 +3,7 @@ import Welcome from '../views/Welcome.vue'
 import Lessons from '../views/Lessons.vue'
 import EditLesson from '../views/EditLesson.vue'
 import LessonDetails from '../views/LessonDetails.vue'
+import LessonSlides from '../views/LessonSlides.vue'
 import { projectAuth } from '../firebase/config'
 
 
@@ -39,6 +40,14 @@ const routes = [
     path: '/lessons/:id',
     name: 'LessonDetails',
     component: LessonDetails,
+    props: true,
+    beforeEnter: requireAuth
+  },
+  ,
+  {
+    path: '/lessons/:id/start',
+    name: 'LessonSlides',
+    component: LessonSlides,
     props: true,
     beforeEnter: requireAuth
   }

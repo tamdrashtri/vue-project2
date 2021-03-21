@@ -8,6 +8,9 @@
             <div class="text-center">
                 <h2 class="title">{{ lesson.title }}</h2>
                 <div class="error" v-if="error">{{ error }}</div>
+                <router-link :to="`/lessons/${lesson.id}/start`">
+                  <button class="button">Start Lesson</button>
+                </router-link>
             </div>
         </div>
 

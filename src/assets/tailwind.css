@@ -12,6 +12,16 @@
     @apply 2xl:bg-gray-900;
     
 }
+
+.card-slide {
+    @apply max-w-md;
+    @apply mx-auto;
+    @apply my-10;
+    @apply p-5;
+
+    
+}
+
 .title {
     @apply my-3;
     @apply text-3xl;

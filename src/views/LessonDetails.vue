@@ -11,12 +11,14 @@
                 <router-link :to="`/lessons/${lesson.id}/start`">
                   <button class="button">Start Lesson</button>
                 </router-link>
+                <button class="button" @click="handleDelete">Delete lesson</button> 
+                <!-- v-if="ownership" -->
             </div>
         </div>
 
-       <!-- <button v-if="ownership" @click="handleDelete">Delete lesson</button>  -->
       
-        <div v-if="!lesson.contents.length">No contents have been added to this lesson yet.</div>
+      
+        <div v-if="!lesson.contents">No contents have been added to this lesson yet.</div>
       <div v-for="content in lesson.contents" :key="content.id" class="single-content">
 
         <div class="card">
@@ -44,7 +46,7 @@ export default {
     // const { user } = getUser()
     const { deleteDoc } = useDocument('lessons', props.id)
     // const { deleteImage } = useStorage()
-    // const router = useRouter()
+    const router = useRouter()
     // const ownership = computed(() => {
     //   return lesson.value 
     //     && user.value 
@@ -52,7 +54,7 @@ export default {
     // })
     const handleDelete = async () => {
       await deleteDoc()
-      router.push({ name: 'lessons' })
+      router.push({ name: 'Lessons' })
     }
     return { error, lesson, handleDelete }
   }

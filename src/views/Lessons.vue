@@ -50,7 +50,8 @@ export default {
       isPending.value = true
       await addDoc({
         title: title.value,
-        createdAt: timestamp()
+        createdAt: timestamp(),
+        contents: []
       })
       isPending.value = false
       if (!error.value) {

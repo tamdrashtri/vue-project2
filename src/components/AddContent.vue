@@ -30,7 +30,8 @@ export default {
     const handleSubmit = async () => {
       const newContent = {
         detail: detail.value,
-        id: Math.floor(Math.random() * 1000000)
+        id: Math.floor(Math.random() * 1000000),
+  
       }
       console.log(newContent)
       const res = await updateDoc({

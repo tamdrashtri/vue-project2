@@ -4,6 +4,7 @@
         <div class="card">
     <div v-if="showLogin">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <LoginForm @login="enterLessons"/>
       <p class="text-center">No account yet? <span @click="showLogin = false">Signup</span> instead.</p>
     </div>
@@ -13,6 +14,8 @@
     </div>
   </div>
 =======
+=======
+>>>>>>> parent of f1a8988 (auth guard)
       <h2>Login</h2>
       <LoginForm />
       <p>No account yet? <span @click="showLogin = false">Signup</span> instead.</p>

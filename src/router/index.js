@@ -1,11 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Welcome from '../views/Welcome.vue'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Lessons from '../views/Lessons.vue'
 import EditLesson from '../views/EditLesson.vue'
 import LessonDetails from '../views/LessonDetails.vue'
 import LessonSlides from '../views/LessonSlides.vue'
 import { projectAuth } from '../firebase/config'
+=======
+>>>>>>> parent of f1a8988 (auth guard)
 =======
 >>>>>>> parent of f1a8988 (auth guard)
 
@@ -14,6 +17,7 @@ const routes = [
     path: '/',
     name: 'Welcome',
     component: Welcome
+<<<<<<< HEAD
 <<<<<<< HEAD
   },
   {
@@ -43,6 +47,8 @@ const routes = [
     component: LessonSlides,
     props: true,
     beforeEnter: requireAuth
+=======
+>>>>>>> parent of f1a8988 (auth guard)
 =======
 >>>>>>> parent of f1a8988 (auth guard)
   }

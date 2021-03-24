@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 
 
+<<<<<<< HEAD
 // import firebase auth service
 import { projectAuth } from './firebase/config'
 
@@ -17,3 +18,6 @@ projectAuth.onAuthStateChanged(() => {
       .mount('#app')
   }
 })
+=======
+createApp(App).use(router).mount('#app')
+>>>>>>> parent of f1a8988 (auth guard)
